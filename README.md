@@ -25,3 +25,4 @@ Others:
 - `@t3-oss/env-core` for managing env variables in a type-safe manner
 - `zod` for runtime schema validation, feel free to replace it with something like Valibot
 - If you are looking for a self-hostable web anlytics service that utilizes the existing Postgres/MySQL & Redis resources, [Umami](https://umami.is) is a great fit!
+- [OpenObserve](https://openobserve.ai/) is a great selfhost service for observability.
