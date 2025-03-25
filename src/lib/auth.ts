@@ -5,7 +5,7 @@ import { drizzleAdapter } from "better-auth/adapters/drizzle";
 import { db } from "../database/db";
 import * as schema from "../database/schema";
 
-const redis = new Redis(`${process.env.REDIS_URL}?family=0`)
+const redis = new Redis(`${envs.REDIS_URL}?family=0`)
 	.on("error", (err) => {
 		// console.error("Redis connection error:", err);
 	})
