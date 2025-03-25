@@ -1,0 +1,7 @@
+# deps
+node_modules/
+.env
+.env.*
+better-auth_migrations/*
+server
+.DS_Store

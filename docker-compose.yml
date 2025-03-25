@@ -1,0 +1,35 @@
+services:
+  db:
+    image: postgres
+    environment:
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "postgres"
+      POSTGRES_DB: "postgres"
+      POSTGRES_HOST_AUTH_METHOD: "trust"
+    env_file:
+      - .env
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+  redis:
+    image: redis
+    ports:
+      - "6379:6379"
+
+  # # For local development with Redis from Upstash
+  # # no need to deploy this to production
+  # serverless-redis-http:
+  #   profiles:
+  #     - local
+  #   ports:
+  #     - '8079:80'
+  #   image: hiett/serverless-redis-http:latest
+  #   environment:
+  #     SRH_MODE: env
+  #     SRH_TOKEN: example_token
+  #     SRH_CONNECTION_STRING: 'redis://redis:6379' # Using `redis` hostname since they're in the same Docker network.
+
+volumes:
+  db_data:
