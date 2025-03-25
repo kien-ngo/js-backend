@@ -9,6 +9,7 @@
     "infra:stop": "docker-compose down",
     "db:migrate": "drizzle-kit migrate",
     "db:generate": "drizzle-kit generate",
+    "db:view": "drizzle-kit studio",
     "auth:generate": "npx @better-auth/cli@latest generate --output src/database/auth-schema.ts && biome check src/database/auth-schema.ts --fix"
   },
   "dependencies": {
