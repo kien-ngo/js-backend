@@ -27,4 +27,8 @@ To make it work, include the following scripts to the `package.json`:
 }
 ```
 
-Once again, the credit goes to this [repo](https://github.com/kadumedim/better-auth-starter)!
+### Interact with the application
+Go to the `js-backend` service that you have deployed -> click on the Settings tab -> scroll down to Networking -> Generate Domain.  
+Make sure the PORT is the same port that is being used in the code. By default it should be 4000.
+
+Once generated, you will have an URL like this: `https://js-backend-production-5a49.up.railway.app`. You can now ping the endpoints, for example: `js-backend-production-5a49.up.railway.app/health`.
