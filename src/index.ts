@@ -559,9 +559,8 @@ app.get(
 app.on(["POST", "GET"], "/api/auth/**", (c) => auth.handler(c.req.raw));
 
 export default {
-	// Change this value to the port of your choice
-	// generally I would avoid 3000 because most frontend app runs at that port when doing local dev
-	// also make sure to change BETTER_AUTH_URL's port should this value is updated
-	port: 4000,
+	// Use environment PORT variable or default to 4000
+	// For Fly.io deployment, PORT will be set to 8080
+	port: process.env.PORT ? parseInt(process.env.PORT, 10) : 4000,
 	fetch: app.fetch,
 };

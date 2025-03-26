@@ -1,0 +1,36 @@
+app = "auth-server"
+primary_region = "sin" # Update this to your preferred region
+
+[build]
+  builder = "dockerfile"
+  dockerfile = "Dockerfile"
+
+[env]
+  PORT = "8080"
+  BETTER_AUTH_URL = "https://auth-server.fly.dev"
+  ENABLE_REDIS = "true"
+
+[http_service]
+  internal_port = 8080
+  force_https = true
+  auto_stop_machines = true
+  auto_start_machines = true
+  min_machines_running = 1
+  processes = ["app"]
+
+[[services.ports]]
+  handlers = ["http"]
+  port = 80
+  force_https = true
+
+[[services.ports]]
+  handlers = ["tls", "http"]
+  port = 443
+
+[[services.http_checks]]
+  interval = "10s"
+  grace_period = "5s"
+  method = "get"
+  path = "/health"
+  protocol = "http"
+  timeout = "2s"
