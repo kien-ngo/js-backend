@@ -3,7 +3,6 @@
 - Self-hostable
 - Great performance thanks to Hono & Bun
 - Type-safety
-- Dynamic API benchmarking
 
 ### Local development:  
 - Have Docker or a similar app (like Orb.stack) up and running
@@ -17,12 +16,15 @@
 - Then, include the change in the grand schema for Drizzle: `bun db:migrate`
 - Finally, run the migration: `bun db:migrate`
 
-### Reasons for the choice of technologies:
+### Reasons for the choices of technologies:
 - Not being locked-in to any database. Better-auth & Drizzle ORM can work with many types of DB
 - Not being locked-in to any closed-source services
 - All solutions in this framework can be migrated to another similar solutions.
 
 The app comes with Postgres by default. Better-auth & Drizzle interact with it via the DATABASE_URL (connection string) so you can deploy this app to prod and connect it to any database service via said variable. To use MySQL, SQLite or any other SQL flavors, refer to Better-auth and Drizzle docs.
+
+### Deploying to clouds
+- Railway: Refer to [RAILWAY.md](/deployments/RAILWAY.md)
 
 Credits:  
 - https://github.com/kadumedim/better-auth-starter
