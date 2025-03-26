@@ -6,13 +6,13 @@ This template does not have a "build" or "start" command by default. If you were
 ```bash
 Nixpacks build failed
 
-+------------------------+
-| Nixpacks v1.34.1      |
-+------------------------+
-| setup   | nodejs_18, bun |
++---------------------------+
+| Nixpacks v1.34.1          |
++---------------------------+
+| setup   | nodejs_18, bun  |
 | install | bun i --no-save |
-| start   |                |
-+------------------------+
+| start   |                 |
++---------------------------+
 
 Error: No start command could be found
 ```
@@ -26,3 +26,5 @@ To make it work, include the following scripts to the `package.json`:
   }
 }
 ```
+
+Once again, the credit goes to this [repo](https://github.com/kadumedim/better-auth-starter)!

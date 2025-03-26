@@ -1,6 +1,8 @@
 {
   "name": "auth-server",
   "scripts": {
+    "build": "bun build ./src/index.ts --compile --outfile server",
+    "start": "./server",
     "dev": "bun run --hot src/index.ts",
     "lint": "biome check src",
     "lint:fix": "biome check src --fix",
