@@ -1,16 +1,23 @@
-Local development:  
+# The ~~JS~~ TypeScript Backend Framework
+- Open-source
+- Self-hostable
+- Great performance thanks to Hono & Bun
+- Type-safety
+- Dynamic API benchmarking
+
+### Local development:  
 - Have Docker or a similar app (like Orb.stack) up and running
 - Boot up the Postgres & Redis server (from the `docker-compose.yml` file): `bun infra:start`
 - Run the backend server: `bun dev`
 - Access the API documentation at [http://localhost:4000/docs](http://localhost:4000/docs)
-- Access the OpenAPI specs at [http://localhost:4000/openapi](http://localhost:4000/openapi)
+- Access the OpenAPI specs at [http://localhost:4000/openapi.json](http://localhost:4000/openapi.json)
 
-Making changes to the database:  
+### Making changes to the database:  
 - When the auth schema changes: `bun auth:generate`
 - Then, include the change in the grand schema for Drizzle: `bun db:migrate`
 - Finally, run the migration: `bun db:migrate`
 
-Reasons for the choice of technologies:
+### Reasons for the choice of technologies:
 - Not being locked-in to any database. Better-auth & Drizzle ORM can work with many types of DB
 - Not being locked-in to any closed-source services
 - All solutions in this framework can be migrated to another similar solutions.
@@ -26,3 +33,7 @@ Others:
 - `zod` for runtime schema validation, feel free to replace it with something like Valibot
 - If you are looking for a self-hostable web anlytics service that utilizes the existing Postgres/MySQL & Redis resources, [Umami](https://umami.is) is a great fit!
 - [OpenObserve](https://openobserve.ai/) is a great selfhost service for observability.
+
+### Credits:  
+- https://github.com/kadumedim/better-auth-starter
+- https://github.com/daveyplate/better-auth-tanstack-starter
