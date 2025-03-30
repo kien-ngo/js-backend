@@ -16,6 +16,10 @@
 - Then, include the change in the grand schema for Drizzle: `bun db:migrate`
 - Finally, run the migration: `bun db:migrate`
 
+### ORMs
+- Drizzle: Checkout the [orm/drizzle branch](https://github.com/kien-ngo/js-backend/tree/orm/drizzle)
+- Prisma: Checkout the [orm/prisma branch](https://github.com/kien-ngo/js-backend/tree/orm/drizzle)
+
 ### Reasons for the choices of technologies:
 - Not being locked-in to any database. Better-auth & Drizzle ORM can work with many types of DB
 - Not being locked-in to any closed-source services
