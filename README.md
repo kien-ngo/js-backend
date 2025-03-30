@@ -8,17 +8,14 @@
 - Have Docker or a similar app (like Orb.stack) up and running
 - Boot up the Postgres & Redis server (from the `docker-compose.yml` file): `bun infra:start`
 - Run the backend server: `bun dev`
-- Access the API documentation at [http://localhost:4000/docs](http://localhost:4000/docs)
+- Access the API documentation _of the api server_ at [http://localhost:4000/docs](http://localhost:4000/docs)
+- Access the API documentation _for Better-auth endpoints_ at [http://localhost:4000/api/auth/reference]()
 - Access the OpenAPI specs at [http://localhost:4000/openapi.json](http://localhost:4000/openapi.json)
 
 ### Making changes to the database:  
 - When the auth schema changes: `bun auth:generate`
 - Then, include the change in the grand schema for Drizzle: `bun db:migrate`
 - Finally, run the migration: `bun db:migrate`
-
-### ORMs
-- Drizzle: Checkout the [orm/drizzle branch](https://github.com/kien-ngo/js-backend/tree/orm/drizzle)
-- Prisma: Checkout the [orm/prisma branch](https://github.com/kien-ngo/js-backend/tree/orm/drizzle)
 
 ### Reasons for the choices of technologies:
 - Not being locked-in to any database. Better-auth & Drizzle ORM can work with many types of DB

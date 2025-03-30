@@ -4,6 +4,7 @@ import { envs } from "./envs";
 import { drizzleAdapter } from "better-auth/adapters/drizzle";
 import { db } from "../database/db";
 import * as schema from "../database/schema";
+import { openAPI } from "better-auth/plugins";
 
 const redis = new Redis(`${envs.REDIS_URL}?family=0`)
 	.on("error", (err) => {
@@ -54,4 +55,5 @@ export const auth = betterAuth({
 		schema,
 	}),
 	secondaryStorage,
+	plugins: [openAPI()],
 });
