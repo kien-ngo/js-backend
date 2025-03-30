@@ -3,7 +3,7 @@ import { auth } from "./lib/auth";
 import { logger } from "hono/logger";
 import { apiReference } from "@scalar/hono-api-reference";
 import { describeRoute, openAPISpecs } from "hono-openapi";
-import { envs } from "./lib/envs";
+
 const app = new Hono();
 
 app.use(logger());
