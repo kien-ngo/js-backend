@@ -12,17 +12,17 @@
 - Access the API documentation _for Better-auth endpoints_ at [http://localhost:4000/api/auth/reference]()
 - Access the OpenAPI specs at [http://localhost:4000/openapi.json](http://localhost:4000/openapi.json)
 
-### Making changes to the database:  
-- When the auth schema changes: `bun auth:generate`
-- Then, include the change in the grand schema for Drizzle: `bun db:migrate`
-- Finally, run the migration: `bun db:migrate`
 
 ### Reasons for the choices of technologies:
-- Not being locked-in to any database. Better-auth & Drizzle ORM can work with many types of DB
+- Not being locked-in to any database. Better-auth can work with many types of DB
 - Not being locked-in to any closed-source services
 - All solutions in this framework can be migrated to another similar solutions.
 
-The app comes with Postgres by default. Better-auth & Drizzle interact with it via the DATABASE_URL (connection string) so you can deploy this app to prod and connect it to any database service via said variable. To use MySQL, SQLite or any other SQL flavors, refer to Better-auth and Drizzle docs.
+The app comes with Postgres by default. Better-auth interacts with it via the DATABASE_URL (connection string) so you can deploy this app to prod and connect it to any database service via said variable. To use MySQL, SQLite or any other SQL flavors, refer to Better-auth docs.
+
+### ORMs
+- For usage with Drizzle ORM, please refer to the [orm/drizzle](https://github.com/kien-ngo/js-backend/tree/orm/drizzle) branch.
+- Prisma (coming soon)
 
 ### Deploying to clouds
 - Railway: Refer to [RAILWAY.md](/deployments/RAILWAY.md)

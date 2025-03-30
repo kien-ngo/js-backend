@@ -1,10 +1,8 @@
 import { betterAuth } from "better-auth";
 import { Redis } from "ioredis";
 import { envs } from "./envs";
-import { drizzleAdapter } from "better-auth/adapters/drizzle";
-import { db } from "../database/db";
-import * as schema from "../database/schema";
 import { openAPI } from "better-auth/plugins";
+import { Pool } from "pg";
 
 const redis = new Redis(`${envs.REDIS_URL}?family=0`)
 	.on("error", (err) => {
@@ -50,9 +48,8 @@ export const auth = betterAuth({
 		},
 	},
 	// DB config
-	database: drizzleAdapter(db, {
-		provider: "pg",
-		schema,
+	database: new Pool({
+		connectionString: envs.DATABASE_URL,
 	}),
 	secondaryStorage,
 	plugins: [openAPI()],
