@@ -1,22 +1,13 @@
 import { betterAuth } from "better-auth";
-import { Redis } from "ioredis";
 import { envs } from "./envs";
 import { openAPI } from "better-auth/plugins";
 import { Pool } from "pg";
 
-const redis = new Redis(`${envs.REDIS_URL}?family=0`)
-	.on("error", (err) => {
-		// console.error("Redis connection error:", err);
-	})
-	.on("connect", () => {
-		// console.log("Redis connected");
-	})
-	.on("ready", () => {
-		// console.log("Redis ready");
-	});
+// Available from Bun 1.2.9. "redis" reads the env REDIS_URL (or VALKEY_URL) directly
+import { redis } from "bun";
 
 const secondaryStorage =
-	envs.ENABLE_REDIS === "true"
+	envs.ENABLE_REDIS === "true" && envs.REDIS_URL
 		? {
 				get: async (key) => {
 					const value = await redis.get(key);
